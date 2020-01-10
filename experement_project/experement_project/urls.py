@@ -22,6 +22,6 @@ from test_app import views
 urlpatterns = [
     url(r'^$',views.index),
     url(r'^test/',include('test_app.urls')),
-
+    url(r'^user/$',views.users,name='user'),
     url(r'^admin/', admin.site.urls),
 ]

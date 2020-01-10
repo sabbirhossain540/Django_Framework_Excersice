@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  {% load staticfiles %}
+  <head>
+    <meta charset="utf-8">
+    <title>User List</title>
+    <link rel="stylesheet" href="{% static "css/mystyle.css" %}">
+  </head>
+  <body>
+    <h1>User List</h1>
+    {% if users %}
+      <table>
+        <thead>
+          <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Email</td>
+          </tr>
+        </thead>
+        <tbody>
+          {% for use in users %}
+            <tr>
+              <td>{{ use.first_name }}</td>
+              <td>{{ use.last_name }}</td>
+              <td>{{ use.email }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <h1>No Data Found</h1>
+    {% endif %}
+
+  </body>
+</html>

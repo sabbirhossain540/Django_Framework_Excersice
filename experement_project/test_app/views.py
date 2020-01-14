@@ -23,7 +23,9 @@ def users(request):
     return render(request,'test_app/user_form.html',{'form':form})
 
 def userlist(request):
-    return render(request,'test_app/relative.html')
+    user_list = User.objects.order_by('first_name')
+    date_dict = {'u_list':user_list}
+    return render(request,'test_app/relative.html',context = date_dict)
 
 def other(request):
     return render(request,'test_app/other.html')

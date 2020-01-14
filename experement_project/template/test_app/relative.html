@@ -1,10 +1,29 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h1>User List</h1>
-  </body>
-</html>
+{% extends "test_app/base.html" %}
+  {% block body_block %}
+
+  <h1>User List Here</h1>
+  <!-- {{ text|cut:'user' }}  ===-=-  Use the process of Template Filtering
+  {{ totalEmployee | add:50}} -->
+    {% if u_list %}
+      <table class="table">
+        <thead>
+          <tr>
+            <td scope="col" >First Name</td>
+            <td scope="col">Last Name</td>
+            <td scope="col">Email</td>
+          </tr>
+        </thead>
+        <tbody>
+          {% for userlist in u_list %}
+            <tr>
+              <td>{{ userlist.first_name }}</td>
+              <td>{{ userlist.last_name }}</td>
+              <td>{{ userlist.email }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <h4>No Data Found</h4>
+    {% endif %}
+  {% endblock %}

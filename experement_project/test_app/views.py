@@ -21,3 +21,9 @@ def users(request):
         else:
             print('Error From Invalid')
     return render(request,'test_app/user_form.html',{'form':form})
+
+def userlist(request):
+    return render(request,'test_app/relative.html')
+
+def other(request):
+    return render(request,'test_app/other.html')
